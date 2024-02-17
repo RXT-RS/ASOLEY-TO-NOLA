@@ -1,2 +1,2 @@
 Flask>=2.0.2
-unicorn==0.18.3
+uvicorn==0.18.3
