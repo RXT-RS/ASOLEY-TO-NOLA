@@ -17,7 +17,7 @@ def check_key():
 # Endpoint for uploading a key
 @app.route('/key_upload', methods=['POST'])
 def upload_key():
-    key = request.args.get('key')
+    key = request.form.get('key')  # Changed request.args to request.form
     if key:
         valid_keys[key] = None  # You can associate data with the key if needed
         return jsonify({"status": "success", "message": "Key uploaded successfully"})
@@ -27,7 +27,7 @@ def upload_key():
 # Endpoint for removing a key
 @app.route('/key_remove', methods=['POST'])
 def remove_key():
-    key = request.args.get('key')
+    key = request.form.get('key')  # Changed request.args to request.form
     if key in valid_keys:
         del valid_keys[key]
         return jsonify({"status": "success", "message": "Key removed successfully"})
